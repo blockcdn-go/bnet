@@ -41,9 +41,19 @@ func iptos(ip interface{}) string {
 		return x.String()
 	case *net.IPAddr:
 		return x.IP.String()
+	case net.IPAddr:
+		return x.IP.String()
+	case *net.IPNet:
+		return x.IP.String()
+	case net.IPNet:
+		return x.IP.String()
 	case *net.TCPAddr:
 		return x.IP.String()
+	case net.TCPAddr:
+		return x.IP.String()
 	case *net.UDPAddr:
+		return x.IP.String()
+	case net.UDPAddr:
 		return x.IP.String()
 	default:
 		panic(fmt.Sprintf("invalid type: %T", ip))
